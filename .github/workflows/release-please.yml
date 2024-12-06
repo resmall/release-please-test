@@ -3,8 +3,7 @@ name: Release Please
 on:
   push:
     branches:
-      - release-next
-      - main
+      - release/*
 
 jobs:
   release-please:
@@ -22,9 +21,9 @@ jobs:
         run: |
           npm install
 
-      - name: Run Release-Please
-        run: |
-          npx release-please github-release --repo-url="${{ github.repository }}"
-          npx release-please release-pr --repo-url="${{ github.repository }}"
+      - name: Release-Please
+        uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: node
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
