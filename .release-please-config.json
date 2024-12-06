@@ -1,0 +1,14 @@
+{
+  "branches": [
+    {
+      "branch": "release-next",
+      "releaseType": "node",
+      "bumpMinorPreMajor": true
+    },
+    {
+      "branch": "main",
+      "releaseType": "node",
+      "handleGHRelease": true
+    }
+  ]
+}

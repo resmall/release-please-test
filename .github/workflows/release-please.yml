@@ -1,18 +1,26 @@
+name: Release Please
+
 on:
   push:
     branches:
+      - release-next
       - main
-name: release-please
-permissions: {}
+
 jobs:
   release-please:
-    permissions:
-      contents: write # to create release commit (google-github-actions/release-please-action)
-      pull-requests: write # to create release PR (google-github-actions/release-please-action)
     runs-on: ubuntu-latest
     steps:
-      - uses: google-github-actions/release-please-action@v4
-        id: release
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          release_type: node
-          token: ${{ secrets.GITHUB_TOKEN }}
+          node-version: "16"
+
+      - name: Run Release-Please
+        run: |
+          npx release-please github-release
+          npx release-please release-pr
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
