@@ -25,5 +25,15 @@ jobs:
         uses: google-github-actions/release-please-action@v3
         with:
           release-type: node
+          default-branch: main
+          pull-request-title-pattern: "chore: release ${version}"
+          changelog-types: |
+            [
+              {"type": "feat", "section": "Features", "hidden": false},
+              {"type": "fix", "section": "Bug Fixes", "hidden": false},
+              {"type": "chore", "section": "Miscellaneous", "hidden": false}
+            ]
+          # This ensures the changelog is generated from the release branch
+          target-branch: ${{ github.ref_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
