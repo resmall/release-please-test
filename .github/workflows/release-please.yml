@@ -25,7 +25,7 @@ jobs:
         uses: google-github-actions/release-please-action@v3
         with:
           release-type: node
-          default-branch: release-next
+          default-branch: target-branch: ${{ github.ref_name }}
           pull-request-title-pattern: "chore: release ${version}"
           changelog-types: |
             [
