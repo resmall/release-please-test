@@ -1,11 +1,14 @@
 {
   "name": "release-please-test",
-  "version": "1.0.0",
-  "description": "test",
+  "version": "2.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "release-please": "^16.15.0"
+  }
 }
