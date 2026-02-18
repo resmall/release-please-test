@@ -10,5 +10,21 @@
       "releaseType": "node",
       "handleGHRelease": true
     }
-  ]
+  ],
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "changelog-sections": [
+        { "type": "feat", "section": "Features" },
+        { "type": "fix", "section": "Bug Fixes" },
+        { "type": "chore", "section": "Miscellaneous" }
+      ],
+      "issue-patterns": [
+        {
+          "pattern": "([A-Z]+-\\d+)",
+          "url": "https://your-company.atlassian.net/browse/$1"
+        }
+      ]
+    }
+  }
 }
